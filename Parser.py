@@ -37,7 +37,6 @@ class Parser:
         if query_params:
             url["query"] = []
             for k, v in query_params.items():
-                print(k," => ",v,'\n')
                 url["query"].append({
                     "key": k,
                     "value": str(v.get("example", {}).get("value", "")) if v.get("example") and "value" in v.get("example") else "",
@@ -144,7 +143,6 @@ class Parser:
 
             path_segments = [seg for seg in path.strip("/").split("/") if seg]
             path_segments.pop()
-            print(path_segments)
             for method, method_data in data.items():
                 if method.lower() not in ["get", "post", "put", "delete", "patch", "options", "head"]:
                     continue
